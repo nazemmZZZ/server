@@ -3,10 +3,12 @@ const http = require("http");
 const morgan = require("morgan")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
+const cors = require("cors")
 const router =require("./router")
 const app = express();
 //import routes from './routes';
 app.use(bodyParser.json({ type: '*/*' }))
+app.use(cors())
 mongoose.connect("mongodb://localhost:27017/auth");
 const port = 4444;
 var db = mongoose.connection;
